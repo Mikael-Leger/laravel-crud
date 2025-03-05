@@ -5,7 +5,7 @@
     <div class="container-centered">
         <h1>Create Note</h1>
         <form action="{{ route('notes.update', $note->id) }}" method="POST">
-        <div class="container-centered-content card">
+        <div class="container-centered card {{ $note->is_done ? 'card-green' : 'card-red' }}">
             @csrf
             @method('PUT')
             <div>
@@ -26,7 +26,7 @@
             </div>
             <div>
                 <label for="is_done">Is finished?</label>
-                <input type="checkbox" name="is_done" id="is_done" {{ $note->is_done ? 'checked' : '' }}>
+                <input type="checkbox" name="is_done" id="is_done" value="{{ $note->is_done ? '1' : '0' }}" {{ $note->is_done ? 'checked' : '' }}>
             </div>
             <div class="container-centered">
                 <button type="submit">Update</button>
