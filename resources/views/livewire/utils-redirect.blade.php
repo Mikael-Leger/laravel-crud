@@ -1,1 +1,1 @@
-<button wire:click="redirectTo('/')" class="btn">Back</button>
+<button wire:click="redirectTo('{{ $location }}')" class="btn">Back</button>

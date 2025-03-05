@@ -2,8 +2,7 @@
 
 @section('content')
     <div class="container">
-        @livewire('utils-redirect')
-
+        @livewire('utils-redirect', ['location' => '/'])
         <div class="container-centered">
             <h1>Notes List</h1>
             <a href="{{ route('notes.create') }}" class="btn">Create Note</a>
@@ -15,7 +14,7 @@
                                 <span class="title">{{ $note->title }}</span>
                                 <span>({{ $note->slug }})</span>
                             </div>
-                            <div class="container-centered gap-1">
+                            <div class="container-centered-content">
                                 <div>{{ $note->content }}</div>
                                 @livewire('utils-date-format', ['date' => $note->deadline])
                                 <div>{{ $note->is_done ? 'Finished' : 'Not finished' }}</div>

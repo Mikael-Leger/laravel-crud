@@ -6,9 +6,11 @@ use Livewire\Component;
 
 class UtilsRedirect extends Component
 {
-    public function redirectTo($location)
+    public $location;
+
+    public function redirectTo()
     {
-        return redirect($location);
+        return redirect($this->location);
     }
 
     public function render()
