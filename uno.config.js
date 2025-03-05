@@ -1,6 +1,11 @@
-import { defineConfig } from 'unocss'
+import { defineConfig } from 'unocss';
 
 export default defineConfig({
+    content: {
+        filesystem: [
+            './resources/**/*.{html,js,php}',
+        ]
+    },
     rules: [
         ['m-1', { margin: '1px' }],
     ],

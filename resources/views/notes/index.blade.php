@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <button onclick="window.location.href='/'">Back</button>
+    <button onclick="window.location.href='/'" class="btn">Back</button>
+    <div class="m-1">Hello</div>
     <h1>Notes List</h1>
     <a href="{{ route('notes.create') }}">Create Note</a>
     <ul>
