@@ -23,7 +23,8 @@
         </div>
         <div>
             <label for="is_done">Is finished?</label>
-            <input type="checkbox" name="is_done" id="is_done">
+            <input type="hidden" name="is_done" value="0">
+            <input type="checkbox" name="is_done" id="is_done" value="1" {{ old('is_done') ? 'checked' : '' }}>
         </div>
         <button type="submit">Save</button>
     </form>

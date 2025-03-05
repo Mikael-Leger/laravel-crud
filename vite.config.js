@@ -10,4 +10,8 @@ export default defineConfig({
         }),
         UnoCSS(),
     ],
+    build: {
+        outDir: 'public',
+        assetsDir: 'js',
+    },
 });

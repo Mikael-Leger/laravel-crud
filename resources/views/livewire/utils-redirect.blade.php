@@ -1,0 +1,1 @@
+<button wire:click="redirectTo('/')" class="btn">Back</button>

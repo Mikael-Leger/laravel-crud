@@ -42,7 +42,7 @@ class NoteController extends Controller
             'slug' => $validated['slug'],
             'content' => $validated['content'],
             'deadline' => $validated['deadline'] ?? null,
-            'is_done' => $validated['is_done'] ?? false,
+            'is_done' => $request->has('is_done') ? true : false,
         ]);
     
         return redirect()->route('notes.index');
@@ -73,6 +73,8 @@ class NoteController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $note = Note::findOrFail($id);
+
         $validated = $request->validate([
             'title' => 'required|max:64',
             'slug' => 'required|unique:notes,slug,' . $note->id . '|max:191',
@@ -86,7 +88,7 @@ class NoteController extends Controller
             'slug' => $validated['slug'],
             'content' => $validated['content'],
             'deadline' => $validated['deadline'] ?? null,
-            'is_done' => $validated['is_done'] ?? false,
+            'is_done' => $request->has('is_done') ? true : false,
         ]);
     
         return redirect()->route('notes.index');
@@ -97,6 +99,8 @@ class NoteController extends Controller
      */
     public function destroy(string $id)
     {
+        $note = Note::findOrFail($id);
+        
         $note->delete();
     
         return redirect()->route('notes.index');

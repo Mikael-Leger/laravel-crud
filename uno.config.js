@@ -7,9 +7,18 @@ export default defineConfig({
         ]
     },
     rules: [
-        ['m-1', { margin: '1px' }],
+        ['border-1-solid-black', { "border": '1px solid black' }],
+        ['br-5', { "border-radius": '5px' }],
     ],
     shortcuts: {
-        'btn': 'px-4 py-2 bg-blue-500 text-white rounded',
+        'container': 'px-4 py-2',
+        'flex-gap': 'gap-y-4 gap-x2',
+        'container-centered': 'container flex flex-col items-center flex-gap',
+        'card': 'container border-1-solid-black br-5 w-[250px] h-[250px]',
+        'card-green': 'bg-[#237a3e]',
+        'card-red': ' bg-[#872341]',
+        'btn': 'container border-0 bg-blue-500 text-white rounded',
+        'title': 'text-[22px] capitalize',
+        'wrapper': 'flex flex-wrap flex-gap',
     },
 })
