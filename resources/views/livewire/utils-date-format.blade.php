@@ -1,1 +1,3 @@
-<p>Deadline: {{ $date }} ({{ $diff }} days left)</p>
+<span>
+    {{ $date ? "$date ($diff days left)" : 'Null' }}
+</span>

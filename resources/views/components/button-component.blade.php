@@ -1,1 +1,0 @@
-<button onclick="{{ $onclick }}" class="btn">{{ $slot }}</button>

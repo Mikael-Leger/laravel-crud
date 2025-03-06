@@ -12,3 +12,14 @@ a {
     text-decoration: none;
     color: white;
 }
+
+.card a {
+    color: black;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

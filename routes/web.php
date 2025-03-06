@@ -30,6 +30,6 @@ Route::get('/notes', function () {
 
 Route::get('/notes/create', [NoteController::class, 'create'])->name('notes.create');
 
-Route::get('/notes/{id}', [NoteController::class, 'show'])->name('notes.show');
+Route::get('/notes/{id}', [NoteController::class, 'read'])->name('notes.read');
 
 Route::resource('notes', NoteController::class);

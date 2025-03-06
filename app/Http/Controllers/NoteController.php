@@ -25,37 +25,13 @@ class NoteController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'title' => 'required|max:64',
-            'slug' => 'required|unique:notes,slug|max:191',
-            'content' => 'required',
-            'deadline' => 'nullable|date',
-            'is_done' => 'nullable|boolean',
-        ]);
-    
-        Note::create([
-            'title' => $validated['title'],
-            'slug' => $validated['slug'],
-            'content' => $validated['content'],
-            'deadline' => $validated['deadline'] ?? null,
-            'is_done' => $request->has('is_done') ? true : false,
-        ]);
-    
-        return redirect()->route('notes.index');
-    }
-
-    /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function read(string $id)
     {
         $note = Note::findOrFail($id);
 
-        return view('notes.show', compact('note')); 
+        return view('notes.read', compact('note')); 
     }
 
     /**
@@ -66,43 +42,5 @@ class NoteController extends Controller
         $note = Note::findOrFail($id);
 
         return view('notes.edit', compact('note'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        $note = Note::findOrFail($id);
-
-        $validated = $request->validate([
-            'title' => 'required|max:64',
-            'slug' => 'required|unique:notes,slug,' . $note->id . '|max:191',
-            'content' => 'required',
-            'deadline' => 'nullable|date',
-            'is_done' => 'nullable|boolean',
-        ]);
-    
-        $note->update([
-            'title' => $validated['title'],
-            'slug' => $validated['slug'],
-            'content' => $validated['content'],
-            'deadline' => $validated['deadline'] ?? null,
-            'is_done' => $request->has('is_done') ? true : false,
-        ]);
-    
-        return redirect()->route('notes.index');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        $note = Note::findOrFail($id);
-        
-        $note->delete();
-    
-        return redirect()->route('notes.index');
     }
 }
