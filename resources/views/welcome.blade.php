@@ -5,7 +5,9 @@
         <h1>Entities:</h1>
         <ul>
             @foreach ($entities as $entity => $url)
-                <li><a href="{{ $url }}" class="card">{{ $entity }}</a></li>
+                <li>
+                    <x-button onclick="window.location.href='{{ $url }}'" color="blue" size="big">{{ $entity }}</x-button>
+                </li>
             @endforeach
         </ul>
     </div>

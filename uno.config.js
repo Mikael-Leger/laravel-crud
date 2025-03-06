@@ -15,7 +15,7 @@ export default defineConfig({
         ['bg-purple', { "background-color": '#9368b7' }],
     ],
     shortcuts: {
-        'container': 'px-4 py-2',
+        'container': 'px-4 py-2 box-border',
         'flex-gap': 'gap-y-4 gap-x2',
         'flex-col': 'flex flex-col',
         'flex-row': 'flex flex-row',

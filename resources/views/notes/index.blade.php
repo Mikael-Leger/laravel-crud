@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-    <x-button onclick="window.location.href='/'" color="blue">Back</x-button>
+    <div class="container flex-col flex-gap">
+        <x-button onclick="window.location.href='/'" color="blue" size="big">Back</x-button>
         <div class="container-centered card">
             <h1>Notes List</h1>
-            <div class="w-full">
+            <div class="w-full border-1-solid-black br-5 overflow-hidden">
                 <div class="table-row bg-blue text-white font-bold p-2">
                     <span class="text-center">Id</span>
                     <span class="text-center">Title</span>
@@ -34,6 +34,14 @@
                         </div>
                     </div>
                 @endforeach
+
+                @if($notes->count() === 0)
+                    <div class="table-row p-2 border-b border-gray-300 bg-gray-100">
+                        <div class="contents">
+                            <span class="text-center col-span-7 block">No record. Please create your first Note below.</span>
+                        </div>
+                    </div>
+                @endif
             </div>
             <x-button onclick="window.location.href='{{ route('notes.create')}}'" color="blue">Create</x-button>
         </div>
