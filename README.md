@@ -1,6 +1,6 @@
 # Project [laravel-crud]
 
-Small CRUD project, its purpose is to discover these technologies:
+Small (S)CRUD project, its purpose is to discover these technologies:
 - **Laravel 10.x**
 - **Livewire**
 - **UnoCSS**
@@ -9,7 +9,7 @@ Small CRUD project, its purpose is to discover these technologies:
 
 Before starting, make sure to start these on your computer:
 
-- **Node.js** (for NPM usage)
+- **Node.js** (for [npm](https://www.npmjs.com/) usage)
 - **PHP** (and [Composer](https://getcomposer.org/))
 
 ## Installation
@@ -31,15 +31,7 @@ Install dependencies for Node.js:
 npm install
 ```
 
-### 3. Launch the frontend development server
-
-Start the frontend server:
-
-```bash
-npm run dev
-```
-
-### 4. Install backend dependencies
+### 3. Install backend dependencies
 
 Install dependencies for PHP:
 
@@ -47,7 +39,37 @@ Install dependencies for PHP:
 composer install
 ```
 
-### 5. Launch the backend development server
+## Configurate Database
+
+### 1. Create a database
+
+Use any tool like [Wamp](https://www.wampserver.com/) to host a MySQL Server.
+Create a new Database with:
+
+```bash
+mysql -u root -p
+CREATE DATABASE laravel;
+```
+
+### 2. Execute migrations
+
+Execute all migrations needed with:
+
+```bash
+php artisan migrate
+```
+
+## Start servers
+
+### 1. Launch the frontend development server
+
+Start the frontend server:
+
+```bash
+npm run dev
+```
+
+### 2. Launch the backend development server
 
 Start the backend server:
 
