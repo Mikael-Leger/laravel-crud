@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Note;
+use App\Livewire\ReadNotes;
 use App\Http\Controllers\NoteController;
 
 /*
@@ -23,10 +24,7 @@ Route::get('/', function () {
     return view('welcome', compact('entities'));
 });
 
-Route::get('/notes', function () {
-    $notes = Note::all();
-    return view('notes.index', compact('notes'));
-})->name('notes.index');
+Route::get('/notes', ReadNotes::class)->name('notes.index');
 
 Route::get('/notes/create', [NoteController::class, 'create'])->name('notes.create');
 
