@@ -19,6 +19,7 @@ export default defineConfig({
         'flex-gap': 'gap-y-4 gap-x2',
         'flex-col': 'flex flex-col',
         'flex-row': 'flex flex-row',
+        'flex-centered': 'flex justify-center items-center flex-gap',
         'container-centered': 'container flex flex-col items-center flex-gap',
         'container-centered-content': 'container-centered gap-1',
         'card': 'container border-1-solid-black br-5 w-full h-full bg-white text-black',
@@ -27,6 +28,6 @@ export default defineConfig({
         'title': 'text-[22px] capitalize',
         'wrapper': 'flex flex-wrap flex-gap',
         'table': 'border-1-solid-black',
-        'table-row': 'grid grid-cols-[50px_1fr_1fr_1fr_200px_100px_300px]'
+        'table-row': 'grid grid-cols-[50px_150px_1fr_1fr_200px_100px_300px]',
     },
 })

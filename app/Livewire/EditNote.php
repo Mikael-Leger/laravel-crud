@@ -34,8 +34,8 @@ class EditNote extends Component
         $note = Note::findOrFail($this->noteId);
 
         $validated = $this->validate([
-            'title' => 'required|max:64',
-            'slug' => 'required|unique:notes,slug,' . $this->noteId . '|max:191',
+            'title' => 'required|min:3|max:64',
+            'slug' => 'required|unique:notes,slug,' . $this->noteId . '|min:3|max:191',
             'content' => 'required',
             'deadline' => 'nullable|date',
             'is_done' => 'nullable|boolean',

@@ -1,6 +1,6 @@
 <div class="container-centered">
     <h1>Read Note</h1>
-    <div class="container-centered card card-small">
+    <div class="container-centered card card-small width-[380px]">
         <div class="container-centered">
             <div>
                 <span class="title">{{ $title }}</span>

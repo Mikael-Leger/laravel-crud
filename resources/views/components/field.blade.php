@@ -4,7 +4,7 @@
     <label for="{{ $name }}" class="block">{{ $label }}</label>
 
     @if($type == 'textarea')
-        <textarea wire:model.defer="{{ $name }}" id="{{ $name }}" class="input" {{ $required ? 'required' : '' }}>{{ $value }}</textarea>
+        <textarea wire:model.defer="{{ $name }}" id="{{ $name }}" class="input resize-none" {{ $required ? 'required' : '' }} re>{{ $value }}</textarea>
     @elseif($type == 'checkbox')
         <input wire:model.defer="{{ $name }}" type="checkbox" id="{{ $name }}" class="input" {{ $value ? 'checked' : '' }}>
     @else

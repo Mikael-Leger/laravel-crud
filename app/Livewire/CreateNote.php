@@ -19,8 +19,8 @@ class CreateNote extends Component
     public function createNote()
     {
         $validated = $this->validate([
-            'title' => 'required|max:64',
-            'slug' => 'required|unique:notes,slug|max:191',
+            'title' => 'required|min:3|max:64',
+            'slug' => 'required|unique:notes,slug|min:3|max:191',
             'content' => 'required',
             'deadline' => 'nullable|date',
             'is_done' => 'nullable|boolean',
