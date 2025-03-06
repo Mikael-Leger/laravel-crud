@@ -48,4 +48,8 @@
     </div>
 
     <x-button onclick="window.location.href='{{ route('notes.create')}}'" color="blue">Create</x-button>
+
+    @if($notes->count() === 0)
+    <x-button wire:click="generateData" color="blue">Lazy?</x-button>
+    @endif
 </div>

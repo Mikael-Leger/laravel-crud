@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Note;
+use Carbon\Carbon;
 
 class ReadNotes extends Component
 {
@@ -13,6 +14,19 @@ class ReadNotes extends Component
     public function mount()
     {
         $this->search = request()->query('search', '');
+    }
+
+    public function generateData()
+    {
+        for ($i = 1; $i < 10; $i++) {
+            Note::create([
+                'title' => 'Note '. $i,
+                'slug' => 'note-'. $i,
+                'content' => 'Je suis la note n°' . $i,
+                'deadline' => Carbon::parse('2025-04-06'),
+                'is_done' => $i % 3 === 0,
+            ]);
+        }
     }
 
     public function render()
