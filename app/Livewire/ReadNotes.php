@@ -3,20 +3,23 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Models\Note;
+use Illuminate\Database\Eloquent\Builder;
 use Carbon\Carbon;
 
 class ReadNotes extends Component
 {
-    public $search = '';
+    public string $search = '';
+    /** @var Collection<Note> $notes */
     public $notes = [];
 
-    public function mount()
+    public function mount(): void
     {
         $this->search = request()->query('search', '');
     }
 
-    public function generateData()
+    public function generateData(): void
     {
         for ($i = 1; $i < 10; $i++) {
             Note::create([
@@ -29,8 +32,9 @@ class ReadNotes extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
+        /** @var Builder $query */
         $query = Note::query();
     
         if (!empty($this->search)) {

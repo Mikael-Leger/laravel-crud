@@ -3,19 +3,21 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Models\Note;
 
 class ReadNote extends Component
 {
-    public $noteId;
-    public $title;
-    public $slug;
-    public $content;
-    public $deadline;
-    public $is_done;
+    public int $noteId;
+    public string $title;
+    public string $slug;
+    public string $content;
+    public ?string $deadline;
+    public bool $is_done;
 
-    public function mount($noteId)
+    public function mount(int $noteId): void
     {
+        /** @var Note $note */
         $note = Note::findOrFail($noteId);
 
         $this->noteId = $note->id;
@@ -26,7 +28,7 @@ class ReadNote extends Component
         $this->is_done = $note->is_done;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.read-note');
     }

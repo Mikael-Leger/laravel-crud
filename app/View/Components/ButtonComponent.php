@@ -8,12 +8,13 @@ use Illuminate\View\Component;
 
 class ButtonComponent extends Component
 {
+    /** @var callable */
     public $onclick;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($onclick = null)
+    public function __construct(callable $onclick = null)
     {
         $this->onclick = $onclick;
     }

@@ -8,16 +8,16 @@ use Illuminate\View\Component;
 
 class Field extends Component
 {
-    public $name;
-    public $label;
-    public $value;
-    public $type;
-    public $required;
+    public string $name;
+    public string $label;
+    public string|bool $value;
+    public string $type;
+    public bool $required;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($name, $label, $value, $type, $required)
+    public function __construct(string $name, string $label, string|bool $value, string $type = 'type', bool $required = false)
     {
         $this->name = $name;
         $this->label = $label;

@@ -3,21 +3,24 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Livewire\Features\SupportRedirects\Redirector;
+use Illuminate\View\View;
 use App\Models\Note;
 
 class CreateNote extends Component
 {
-    public $title;
-    public $slug;
-    public $content;
-    public $deadline;
-    public $is_done = false;
+    public string $title = '';
+    public string $slug = '';
+    public string $content = '';
+    public ?string $deadline = null;
+    public bool $is_done = false;
 
     /**
      * Store a newly created resource in storage.
      */
-    public function createNote()
+    public function createNote(): Redirector
     {
+        /** @var array{title: string, slug: string, content: string, deadline: ?string, is_done: ?bool} $validated */
         $validated = $this->validate([
             'title' => 'required|min:3|max:64',
             'slug' => 'required|unique:notes,slug|min:3|max:191',
@@ -37,7 +40,7 @@ class CreateNote extends Component
         return redirect()->route('notes.index');
     }
     
-    public function render()
+    public function render(): View
     {
         return view('livewire.create-note');
     }

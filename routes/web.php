@@ -17,6 +17,7 @@ use App\Http\Controllers\NoteController;
 */
 
 Route::get('/', function () {
+    /** @var Note[] $entities */
     $entities = [
         'Notes' => route('notes.index'),
     ];
